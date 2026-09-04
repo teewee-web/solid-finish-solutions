@@ -1,15 +1,22 @@
 [build]
-  publish = "."
-
-[[redirects]]
-  from = "https://www.solidfinishsolutions.co.uk/*"
-  to = "https://solidfinishsolutions.co.uk/:splat"
-  status = 301
-  force = true
+  command = "npm run build"
+  publish = "dist"
 
 [[headers]]
-  for = "/*"
+  for = "/"
   [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
