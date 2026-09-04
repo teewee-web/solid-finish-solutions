@@ -1,8 +1,15 @@
 [build]
-  command = "npm run build"
-  publish = "dist"
+  publish = "."
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  from = "https://www.solidfinishsolutions.co.uk/*"
+  to = "https://solidfinishsolutions.co.uk/:splat"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
