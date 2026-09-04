@@ -8,9 +8,7 @@ const shellLinks = `
   <nav aria-label="Primary">
     <a href="/">Home</a>
     <a href="/commercial-painters-london/">Commercial painters London</a>
-    <a href="/painter-decorator-enfield/">Painter and decorator Enfield</a>
-    <a href="/interior-painting-enfield/">Interior painting Enfield</a>
-    <a href="/exterior-painting-enfield/">Exterior painting Enfield</a>
+    <a href="/#service-area">London coverage</a>
     <a href="/#projects">Recent projects</a>
     <a href="/#contact">Contact</a>
   </nav>
@@ -26,7 +24,7 @@ const pages = [
           ${shellLinks}
         </header>
         <section>
-          <p>Serving London / Based in Enfield, North London</p>
+          <p>Serving London and surrounding areas</p>
           <p>£5m public liability insurance / Written quotations / London coverage</p>
           <h1>Professional painting and decorating for London homes and commercial property</h1>
           <p>Solid Finish Solutions provides residential and commercial painting, decorating and property maintenance across London and surrounding areas. We work with homeowners, landlords, property managers, offices and commercial premises.</p>

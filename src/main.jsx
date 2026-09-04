@@ -27,7 +27,7 @@ const whatsappHref =
 
 const navItems = [
   ["Services", "/#services"],
-  ["Enfield", "/painter-decorator-enfield/"],
+  ["London", "/#service-area"],
   ["Commercial", "/commercial-painters-london/"],
   ["Projects", "/#projects"],
   ["Why us", "/#why-us"],
@@ -652,7 +652,7 @@ function CommercialPaintersPage() {
           <div className="grid gap-3">
             {[
               ['Can you work in occupied offices?', 'Yes. Phasing, protection and access are agreed before work begins so disruption can be managed.'],
-              ['Do you cover all of London?', 'We are based in Enfield, North London, and accept suitable commercial enquiries across London and surrounding areas.'],
+              ['Do you cover all of London?', 'Yes. We are based in North London and accept suitable commercial enquiries across London and surrounding areas.'],
               ['Can you reduce disruption to occupied premises?', 'Phasing, protection and access arrangements can be discussed where the site and programme allow it.'],
               ['Do you specify paint products?', 'Yes. Product and finish recommendations are matched to the substrate, use of the area, cleaning needs and required durability.'],
             ].map(([q,a]) => <details key={q} className="rounded-2xl bg-white/8 p-5 ring-1 ring-white/10"><summary className="cursor-pointer font-black">{q}</summary><p className="mt-3 text-sm font-semibold leading-6 text-white/68">{a}</p></details>)}
@@ -1108,12 +1108,12 @@ function Services() {
 
 function ServiceArea() {
   return (
-    <section className="bg-charcoal px-5 py-16 text-white sm:px-8 lg:px-10">
+    <section id="service-area" className="bg-charcoal px-5 py-16 text-white sm:px-8 lg:px-10">
       <div className="mx-auto max-w-5xl">
         <SectionHeader
           kicker="Where we work"
-          title="Painting and Decorating Services Across London"
-          text="Based in Enfield, North London, Solid Finish Solutions carries out painting and decorating projects across London and surrounding areas. We welcome enquiries from homeowners, landlords, property managers, offices and commercial organisations throughout the capital."
+          title="Painting and decorating services across London"
+          text="Solid Finish Solutions works with homeowners, landlords, property managers, offices and commercial organisations across London and surrounding areas. If the project is a good fit, we are happy to discuss residential, rental and commercial work throughout the capital."
           inverse
         />
       </div>
@@ -1250,7 +1250,7 @@ function Contact() {
             </a>
             <p className="flex items-center gap-3">
               <MapPin size={18} className="text-gold" />
-              Based in Enfield, North London / Serving London and surrounding areas
+              London and surrounding areas
             </p>
           </div>
         </div>
@@ -1320,8 +1320,6 @@ function Footer() {
             <a href="/#services">Property maintenance</a>
             <a href="/#services">Commercial make-good</a>
             <a href="/commercial-painters-london/">Commercial painters London</a>
-            <a href="/interior-painting-enfield/">Interior painting Enfield</a>
-            <a href="/exterior-painting-enfield/">Exterior painting Enfield</a>
           </div>
         </div>
         <div>
