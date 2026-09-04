@@ -191,7 +191,7 @@ const audiences = [
   },
   {
     title: "Commercial clients",
-    text: "Offices, retail and shared areas handled cleanly, including out-of-hours work.",
+    text: "Offices, retail and shared areas handled cleanly, with access and timing agreed before work starts.",
   },
 ];
 
@@ -653,7 +653,7 @@ function CommercialPaintersPage() {
             {[
               ['Can you work in occupied offices?', 'Yes. Phasing, protection and access are agreed before work begins so disruption can be managed.'],
               ['Do you cover all of London?', 'We are based in Enfield, North London, and accept suitable commercial enquiries across London and surrounding areas.'],
-              ['Can you work outside normal hours?', 'Out-of-hours or phased working can be discussed where the site, programme and access arrangements allow it.'],
+              ['Can you reduce disruption to occupied premises?', 'Phasing, protection and access arrangements can be discussed where the site and programme allow it.'],
               ['Do you specify paint products?', 'Yes. Product and finish recommendations are matched to the substrate, use of the area, cleaning needs and required durability.'],
             ].map(([q,a]) => <details key={q} className="rounded-2xl bg-white/8 p-5 ring-1 ring-white/10"><summary className="cursor-pointer font-black">{q}</summary><p className="mt-3 text-sm font-semibold leading-6 text-white/68">{a}</p></details>)}
           </div>
@@ -699,7 +699,7 @@ function CommercialCaseStudy({ project }) {
 
 function CaseStudyMedia({ media }) {
   if (media.type === "video") {
-    return <video className="h-full w-full object-cover" muted playsInline preload="metadata"><source src={`${media.src}#t=0.1`} type="video/quicktime" /><track kind="captions" src="/captions-silent.vtt" srcLang="en" label="English" default /></video>;
+    return <video className="h-full w-full object-cover" muted playsInline preload="metadata"><source src={`${media.src}#t=0.1`} type="video/quicktime" /></video>;
   }
   return <img src={media.src} alt={media.alt || "Project before painting and decorating"} className="h-full w-full object-cover" loading="lazy" />;
 }
@@ -722,21 +722,24 @@ function CookieConsent() {
 
   return (
     <aside
-      className="fixed inset-x-4 bottom-20 z-50 mx-auto max-w-3xl rounded-3xl border border-charcoal/10 bg-white p-5 shadow-soft md:bottom-5"
+      className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-xl rounded-2xl border border-charcoal/10 bg-white p-3 shadow-soft sm:bottom-5 sm:max-w-3xl sm:p-5"
       aria-label="Cookie preferences"
     >
-      <p className="font-black">Help us improve this website</p>
-      <p className="mt-2 text-sm font-semibold leading-6 text-muted">
-        With your permission, Google Analytics measures visits and enquiry-button use. We do not load analytics until you accept. Read our{" "}
-        <a href="/privacy/" className="font-black text-charcoal underline">privacy and cookie notice</a>.
-      </p>
-      <div className="mt-4 flex flex-col gap-2 sm:flex-row">
-        <button type="button" onClick={() => choose("accepted")} className="rounded-full bg-charcoal px-5 py-3 text-sm font-black text-white">
+      <div className="grid gap-3 sm:grid-cols-[1fr_auto] sm:items-center">
+        <div>
+          <p className="text-sm font-black sm:text-base">Analytics preferences</p>
+          <p className="mt-1 text-xs font-semibold leading-5 text-muted sm:text-sm sm:leading-6">
+            Google Analytics only loads if you accept. <a href="/privacy/" className="font-black text-charcoal underline">Privacy notice</a>.
+          </p>
+        </div>
+      <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-row">
+        <button type="button" onClick={() => choose("accepted")} className="rounded-full bg-charcoal px-4 py-2 text-xs font-black text-white sm:px-5 sm:py-3 sm:text-sm">
           Accept analytics
         </button>
-        <button type="button" onClick={() => choose("declined")} className="rounded-full border border-charcoal/15 px-5 py-3 text-sm font-black text-charcoal">
+        <button type="button" onClick={() => choose("declined")} className="rounded-full border border-charcoal/15 px-4 py-2 text-xs font-black text-charcoal sm:px-5 sm:py-3 sm:text-sm">
           Decline
         </button>
+      </div>
       </div>
     </aside>
   );
@@ -929,7 +932,7 @@ function Projects() {
             <ArrowRight size={18} />
           </ButtonLink>
         </div>
-        <div className="grid items-start gap-5 sm:grid-cols-2">
+        <div className="grid items-start gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {projects.map((project, index) =>
             project.galleryMedia ? (
               <ProjectGalleryCard key={project.title} project={project} />
@@ -975,8 +978,8 @@ function Projects() {
 
 function ProjectGalleryCard({ project }) {
   return (
-    <article className="overflow-hidden rounded-3xl bg-cream shadow-card sm:col-span-2 lg:grid lg:grid-cols-[1.45fr_1fr]">
-      <div className="grid h-[20rem] grid-cols-[2fr_1fr] grid-rows-2 gap-px bg-[#e8e4da] sm:h-[24rem] lg:h-full lg:min-h-[25rem]">
+    <article className="overflow-hidden rounded-3xl bg-cream shadow-card">
+      <div className="grid h-[15rem] grid-cols-[2fr_1fr] grid-rows-2 gap-px bg-[#e8e4da] sm:h-[16rem]">
         {project.galleryMedia.map((image, index) => (
           <img
             key={image.src}
@@ -987,13 +990,10 @@ function ProjectGalleryCard({ project }) {
           />
         ))}
       </div>
-      <div className="flex flex-col justify-center p-7 lg:p-9">
-        <div>
-          <p className="text-xs font-black uppercase tracking-[0.14em] text-gold">Recent residential project</p>
-          <h3 className="mt-3 text-3xl font-black leading-tight">{project.title}</h3>
-          <p className="mt-4 max-w-xl text-sm font-semibold leading-6 text-muted">{project.text}</p>
-        </div>
-        <a href="/#services" className="mt-6 inline-flex items-center gap-2 self-start text-sm font-black underline">Interior painting services <ArrowRight size={16} /></a>
+      <div className="p-5">
+        <p className="text-xs font-black uppercase tracking-[0.14em] text-gold">Recent project</p>
+        <h3 className="mt-2 text-xl font-black leading-tight">{project.title}</h3>
+        <p className="mt-2 text-sm font-semibold leading-6 text-muted">{project.text}</p>
       </div>
     </article>
   );
@@ -1002,7 +1002,7 @@ function ProjectGalleryCard({ project }) {
 function ProjectImageCard({ project }) {
   return (
     <article className="overflow-hidden rounded-3xl bg-cream shadow-card">
-      <div className="relative h-[17rem] overflow-hidden bg-[#e8e4da] sm:h-[20rem] xl:h-[18rem]">
+      <div className="relative h-[15rem] overflow-hidden bg-[#e8e4da] sm:h-[16rem]">
         <img
           src={project.imageMedia.src}
           alt={project.imageMedia.alt}
@@ -1013,12 +1013,12 @@ function ProjectImageCard({ project }) {
           Interior finish
         </div>
       </div>
-      <div className="grid gap-3 p-5 sm:grid-cols-[1fr_auto] sm:items-end">
+      <div className="p-5">
         <div>
           <h3 className="text-xl font-black">{project.title}</h3>
           <p className="mt-2 text-sm font-semibold leading-6 text-muted">{project.text}</p>
         </div>
-        <span className="rounded-full bg-white px-3 py-2 text-xs font-black uppercase tracking-wide text-muted">
+        <span className="mt-4 inline-flex rounded-full bg-white px-3 py-2 text-xs font-black uppercase tracking-wide text-muted">
           Real project
         </span>
       </div>
@@ -1029,7 +1029,7 @@ function ProjectImageCard({ project }) {
 function BeforeAfterSlider({ project }) {
   return (
     <article className="overflow-hidden rounded-3xl bg-cream shadow-card">
-      <div className="grid h-[18rem] grid-cols-2 gap-px bg-white sm:h-[20rem]">
+      <div className="grid h-[15rem] grid-cols-2 gap-px bg-white sm:h-[16rem]">
         <div className="relative overflow-hidden bg-[#e8e4da]">
           <ProjectMedia media={project.beforeMedia} />
           <div className="absolute left-3 top-3 z-20 rounded-full bg-white/95 px-3 py-2 text-[0.68rem] font-black uppercase tracking-wide text-charcoal shadow-card ring-1 ring-charcoal/10">
@@ -1043,12 +1043,12 @@ function BeforeAfterSlider({ project }) {
           </div>
         </div>
       </div>
-      <div className="grid gap-3 p-5 sm:grid-cols-[1fr_auto] sm:items-end">
+      <div className="p-5">
         <div>
           <h3 className="text-xl font-black">{project.title}</h3>
           <p className="mt-2 text-sm font-semibold leading-6 text-muted">{project.text}</p>
         </div>
-        <span className="rounded-full bg-white px-3 py-2 text-xs font-black uppercase tracking-wide text-muted">
+        <span className="mt-4 inline-flex rounded-full bg-white px-3 py-2 text-xs font-black uppercase tracking-wide text-muted">
           Before / after
         </span>
       </div>
@@ -1067,7 +1067,6 @@ function ProjectMedia({ media }) {
       >
         <source src={`${media.src}#t=0.1`} type="video/mp4" />
         <source src={`${media.src}#t=0.1`} type="video/quicktime" />
-        <track kind="captions" src="/captions-silent.vtt" srcLang="en" label="English" default />
       </video>
     );
   }
@@ -1228,7 +1227,7 @@ function Contact() {
           <SectionHeader
             kicker="Get started"
             title="Get a fast, free quote today"
-            text="Tell us about your project and we will get straight back to you, often the same day on WhatsApp."
+            text="Tell us about your project and we will get back to you with a clear next step."
           />
           <div className="flex flex-col gap-3 sm:flex-row">
             <ButtonLink href={whatsappHref}>

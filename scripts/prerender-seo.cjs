@@ -139,7 +139,13 @@ function minify(html) {
 
 for (const page of pages) {
   const htmlPath = path.join(dist, page.file);
+  if (!fs.existsSync(htmlPath)) {
+    throw new Error(`Missing built HTML file: ${page.file}`);
+  }
   const html = fs.readFileSync(htmlPath, "utf8");
+  if (!html.includes('<div id="root"></div>')) {
+    throw new Error(`Cannot find React root placeholder in: ${page.file}`);
+  }
   const injected = html.replace(
     '<div id="root"></div>',
     `<div id="root">${minify(page.body)}</div>`,

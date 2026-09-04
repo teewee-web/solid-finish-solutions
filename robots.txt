@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://solidfinishsolutions.co.uk/sitemap.xml
