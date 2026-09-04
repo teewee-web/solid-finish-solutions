@@ -1315,11 +1315,11 @@ function Footer() {
         <div>
           <h3 className="mb-4 text-sm font-black text-amber">Services</h3>
           <div className="grid gap-2 text-sm font-semibold text-white/68">
-            <a href="#services">Interior painting</a>
-            <a href="#services">Exterior painting</a>
-            <a href="#services">Plastering & repairs</a>
-            <a href="#services">Property maintenance</a>
-            <a href="#services">Commercial make-good</a>
+            <a href="/#services">Interior painting</a>
+            <a href="/#services">Exterior painting</a>
+            <a href="/#services">Plastering & repairs</a>
+            <a href="/#services">Property maintenance</a>
+            <a href="/#services">Commercial make-good</a>
             <a href="/commercial-painters-london/">Commercial painters London</a>
             <a href="/interior-painting-enfield/">Interior painting Enfield</a>
             <a href="/exterior-painting-enfield/">Exterior painting Enfield</a>
@@ -1331,7 +1331,7 @@ function Footer() {
             <a href={phoneHref}>{phoneDisplay}</a>
             <a href={whatsappHref}>WhatsApp us</a>
             <a href={emailHref}>Email us</a>
-            <a href="#projects">Recent projects</a>
+            <a href="/#projects">Recent projects</a>
             <a href="/privacy/">Privacy &amp; cookies</a>
           </div>
         </div>
